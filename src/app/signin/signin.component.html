@@ -1,0 +1,115 @@
+<app-navbar></app-navbar>
+
+
+<div id="signinPageID" class="container">
+    <div class="row">
+        
+        <div class="col-lg-12 col-12">
+            <form class="card" [formGroup]="signinForm" (ngSubmit)="onSubmit(signinForm.value)">
+
+                <mat-label>What do you want to signin as?</mat-label> <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>User Type</mat-label>                    
+                    <mat-select formControlName="usertype" single>
+                        <mat-option *ngFor="let item of usertype_list" [value]="item" (click)="showFields(item)">{{ item }}</mat-option>
+                    </mat-select>
+                </mat-form-field> <br> <br>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" placeholder="Enter Username">
+                    <mat-error *ngIf="signinForm.get('username').errors?.['required']">Username is required</mat-error>
+                    <mat-error *ngIf="signinForm.get('username').errors?.['spaceCheck']">Username must not contain spaces</mat-error>
+                </mat-form-field> <br><br>
+            
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstname" placeholder="Enter First Name">
+                        <mat-error *ngIf="signinForm.get('firstname').errors?.['required']">First Name is required</mat-error>
+                        <mat-error *ngIf="signinForm.get('firstname').errors?.['spaceCheck']">First Name must not contain spaces</mat-error>
+                    </mat-form-field>
+
+                    <span style="margin: 0 0.3rem;"></span>
+                
+                    <mat-form-field appearance="fill">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastname" placeholder="Enter Last Name">
+                        <mat-error *ngIf="signinForm.get('lastname').errors?.['required']">Last Name is required</mat-error>
+                        <mat-error *ngIf="signinForm.get('lastname').errors?.['spaceCheck']">Last Name must not contain spaces</mat-error>
+                    </mat-form-field>
+                </div> <br><br>
+            
+                <div>
+                    <mat-label>Primary Phone Number</mat-label> <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Prefix</mat-label>                    
+                        <mat-select formControlName="prefix1" single>
+                            <mat-option *ngFor="let item of prefix_list" [value]="item">{{ item }}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="signinForm.get('prefix1').errors?.['required']">Please select a prefix</mat-error>
+                    </mat-form-field>
+
+                    <span style="margin: 0 0.3rem;"></span>
+            
+                    <mat-form-field appearance="fill">
+                        <mat-label>Phone</mat-label>
+                        <input matInput formControlName="phone1" placeholder="Enter Phone Number">
+                        <mat-error *ngIf="signinForm.get('phone1').errors?.['required']">Please enter a phone number</mat-error>
+                        <mat-error *ngIf="signinForm.get('phone1').errors?.['checkPhone']">Number format is incorrect</mat-error>
+                    </mat-form-field>
+                </div> <br> <br>
+
+                <!--"landlord" option-->
+                <div *ngIf="landlordForms">
+                    <div>
+                        <mat-label>Phone 2 (Optional)</mat-label> <br>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Prefix</mat-label>                    
+                            <mat-select formControlName="prefix2" single>
+                                <mat-option *ngFor="let item of prefix_list" [value]="item">{{ item }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+    
+                        <span style="margin: 0 0.3rem;"></span>
+                
+                        <mat-form-field appearance="fill">
+                            <mat-label>Phone</mat-label>
+                            <input matInput formControlName="phone2" placeholder="Enter Back-Up Phone Number">
+                        </mat-form-field>
+                    </div> <br>
+    
+                    <mat-form-field appearance="fill" style="width: 100%;">
+                        <mat-label>IBAN</mat-label>
+                        <input matInput formControlName="iban" placeholder="AZXX XXXX XXXX XXXX XXXX">
+                        <mat-error *ngIf="signinForm.get('iban').errors?.['required']">IBAN number is required</mat-error>
+                        <mat-error *ngIf="signinForm.get('iban').errors?.['minlength'['actualLength']] != [0-20] && signinForm.get('iban').errors?.['maxLength'['actualLength']] != 20">IBAN number must be 20 characters long</mat-error>
+                        <mat-error *ngIf="signinForm.get('iban').errors?.['spaceCheck']">Please ommit any spaces</mat-error>
+                        <mat-error *ngIf="signinForm.get('iban').errors?.['validateIban']">Invalid IBAN number</mat-error>
+                    </mat-form-field> <br> <br>
+                </div> 
+                <!---->
+            
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" placeholder="example@example.com">
+                    <mat-error *ngIf="signinForm.get('email').errors?.['required']">Email is required</mat-error>
+                    <mat-error *ngIf="signinForm.get('email').errors?.['invalid']">Email is invalid</mat-error>
+                </mat-form-field> <br><br>
+            
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" placeholder="Enter Password">
+                    <mat-error *ngIf="signinForm.get('password').errors?.['required']">Password is required</mat-error>
+                    <mat-error *ngIf="signinForm.get('password').errors?.['minlength'['actualLength']] != [0-8]">Password must be longer than 8 characters</mat-error>
+                </mat-form-field> <br><br><br>
+
+                <button mat-button class="link_btn">Submit</button>
+            </form>
+        </div>
+    
+    </div>
+</div>
+
+
+<app-footer></app-footer>

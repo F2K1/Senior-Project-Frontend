@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+
+<div id="loginPageID" class="container">
+    <div class="row">
+        
+        <div class="col-lg-12 col-12">
+            <form class="card" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" placeholder="Enter Username">
+                    <mat-error *ngIf="loginForm.get('username').errors?.['required']">Please enter a username</mat-error>
+                    <mat-error *ngIf="loginForm.get('username').errors?.['spaceCheck']">Username must not contain spaces</mat-error>
+                </mat-form-field> <br>
+                        
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" placeholder="Enter Password">
+                    <mat-error *ngIf="loginForm.get('password').errors?.['required']">Please enter the account's password</mat-error>
+                </mat-form-field> <br>
+
+                <button mat-button class="link_btn">Submit</button>
+            </form>
+        </div>
+    
+    </div>
+</div>
+
+
+<app-footer></app-footer>

@@ -1,0 +1,45 @@
+<!-- Navigation Bar (Desktop) -->
+<mat-toolbar class="navbar">
+    <img src="assets/img/anyplace_logoA.png" alt="logo" style="height: 100%">
+    <span class="navbar_spacer"></span>
+    
+    <div id="cntr_btnsID">
+        <button mat-button class="link_btn" routerLink=""> Home </button>
+        <button mat-button class="link_btn" routerLink="/property">Buy</button>
+        <button mat-button class="link_btn">Sell</button>
+        <button mat-button class="link_btn">Rent</button>
+        <button mat-button class="link_btn">News</button>
+    </div>
+
+    <span class="navbar_spacer"></span>
+
+    <div id="right_btnsID">
+        <button mat-button class="alert_btn">Help</button>
+        <button mat-button class="link_btn" routerLink="/login">Log In</button>
+        <button mat-button class="link_btn" routerLink="/signin">Sign In</button>
+    </div>
+
+    <div class="sidebar_opened">
+        <button class="ham_btn link_btn" type="button" mat-button (click)="sidebarShow = !sidebarShow"> <i class="lni lni-menu"></i> </button>
+    </div>  
+</mat-toolbar>
+
+
+<!--Navigation Bar (Mobile)-->
+<div class="sidebar_cont" [class.sidebar-slide-in]="sidebarShow">
+    <mat-icon (click)="sidebarShow = !sidebarShow">close</mat-icon>
+    
+    <div class="sidebar_content">
+        <div id="top_btnsID">
+            <button mat-button class="sidebar_btn link_btn" type="button">Log In</button>
+            <button mat-button class="sidebar_btn link_btn" type="button">Sign In</button>
+        </div>
+        <button mat-button class="sidebar_btn link_btn" type="button"> <mat-icon>home</mat-icon> Home</button>
+        <button mat-button class="sidebar_btn link_btn" type="button">Buy</button>
+        <button mat-button class="sidebar_btn link_btn" type="button">Sell</button>
+        <button mat-button class="sidebar_btn link_btn" type="button">Rent</button>
+        <button mat-button class="sidebar_btn link_btn" type="button">Find Agent</button>
+        <button mat-button class="sidebar_btn link_btn" type="button">News</button>
+        <button mat-button class="sidebar_btn link_btn" type="button">Help</button>
+    </div>
+</div>

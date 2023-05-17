@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+
+
+<div class="propertyPageID container-fluid">
+    <div class="row">
+
+        <div class="col-lg-3 col-12 card filter_card">
+            <form [formGroup]="propertyFilter" (ngSubmit)="filterResults(propertyFilter.value)">
+
+                <div>
+                    <h5>Price</h5>
+    
+                    <mat-form-field appearance="fill">
+                        <mat-label>From</mat-label>
+                        <input matInput formControlName="minprice">
+                    </mat-form-field> <br>
+                        
+                    <mat-form-field appearance="fill">
+                        <mat-label>To</mat-label>
+                        <input matInput formControlName="maxprice">
+                    </mat-form-field>
+                </div> <br>
+    
+                <mat-divider></mat-divider> <br>
+                
+                <div>
+                    <h5>Property Type</h5>
+    
+                    <p><mat-checkbox formControlName="residence">Residence</mat-checkbox></p>
+                    <p><mat-checkbox formControlName="flat">Flat</mat-checkbox></p>
+                    <p><mat-checkbox formControlName="room">Room</mat-checkbox></p>
+                </div> <br>
+    
+                <button mat-button class="link_btn">Filter</button>
+    
+            </form>
+        </div>
+
+        <div class="col-lg-9 col-12">
+            <div class="row">
+
+                <div *ngFor="let property of filtered_property_list" class="col-lg-4 col-sm-6 col-12">
+                    <a href="" routerLink="/show-prop">
+                        <div class="card property_card">
+                            <div>
+                                <img src="../../assets/img/{{ property.img }}/photo1.jpg" alt="" width="100%">
+                            </div>
+                            <h5>{{ property.name }}</h5>
+                            <h6>{{ property.type }}</h6>
+                            <p> <i class="lni lni-euro"></i> {{ property.price }} euro</p>
+                            <p> <i class="lni lni-frame-expand"></i> {{ property.size }} m<sup>2</sup> </p>
+                            <p> <i class="lni lni-map-marker"></i> {{ property.address }}</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<app-footer></app-footer>

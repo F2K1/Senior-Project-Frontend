@@ -1,0 +1,14 @@
+@import "../../styles.scss";
+
+
+.filter {
+    &_card {
+        background-color: $card_clr;
+        padding: 1rem 2rem;
+    }
+}
+
+.property_card {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}

@@ -1,0 +1,60 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+// @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+
+//Variables
+//colors & shadows
+$prim_clr: rgb(21, 52, 98);
+$sec_clr: rgb(246, 246, 201);
+$ter_clr: rgb(252, 226, 42);
+$quart_clr: rgb(249, 74, 41);
+$card_clr: rgb(219, 219, 217);
+$prim_shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;;
+$sec_shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+//sizes
+$size1: 2rem;
+$size5: 6rem;
+$size15: 16rem;
+
+
+//Tags
+form {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+
+//Classes
+.alert {
+    color: red;
+
+    &_btn {
+        background-color: $ter_clr; 
+        color: $quart_clr;
+    }
+}
+
+.card {
+    padding: $size1;
+}
+
+.link_btn {
+    color: $sec_clr;
+    background-color: $prim_clr;
+    border-radius: $size1;
+
+    &:hover {
+        background-color: $sec_clr;
+        color: $prim_clr;
+    }
+}
+
+.visual_priority {
+    z-index: 10;
+}
